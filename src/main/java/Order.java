@@ -5,7 +5,7 @@ public class Order {
     private long price;
 
     //конструктор
-    public Order(int id, String comment, long price) {
+    public Order(String comment, long price) {
         this.id = id;
         this.comment = comment;
         this.price = price;
