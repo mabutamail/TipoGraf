@@ -9,7 +9,5 @@ public class ProgramStart {
         orderList.add(2,new Order(1,"нужна доставка3",1_234_567_890L));
 
         orderList.stream().map(Order::toString).forEach(System.out::println);
-
-
     }
 }
