@@ -15,6 +15,14 @@ public class Order {
     private String comment;
 
     //конструктор
+    public Order() {
+        //this.id = 1;
+        this.localDateTime = LocalDateTime.now();
+        this.color = Color.COLOR4_4;
+        this.price = 0;
+        this.comment = "примечание";
+    }
+
     public Order(AtomicInteger id, Color color, long price, String comment) {
         this.id = id;
         this.localDateTime = LocalDateTime.now();

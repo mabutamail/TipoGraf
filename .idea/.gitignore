@@ -1,2 +1,14 @@
 # Default ignored files
 /workspace.xml
+target/
+.idea/
+.idea
+.repository/
+*.iml
+*.iws
+*.jrtc
+*.java
+*.class
+*.info
+*.properties
+*.jar
