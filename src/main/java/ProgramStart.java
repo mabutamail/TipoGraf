@@ -9,7 +9,7 @@ public class ProgramStart {
         orderList.add(new Order(Color.COLOR4_4, 2_234_567_890L,"бартер"));
         orderList.add(new Order(Color.COLOR1_0, 3_234_567_890L,"в кредит"));
         orderList.add(new Order(Color.COLOR1_1, 4_234_567_890L,"срочно!"));
-//        orderList.add(new Order(new AtomicInteger(5), Color.COLOR4_1, 5_234_567_890L,"доставка"));
+        orderList.add(new Order(Color.COLOR4_1, 5_234_567_890L,"доставка"));
         orderList.add(new Order());
         orderList.add(new Order());
 

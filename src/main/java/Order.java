@@ -10,7 +10,7 @@ public class Order {
     //поля - состояние
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id = 0;
+    private int id;
     private LocalDateTime localDateTime;
     private Color color;
     private long price;
@@ -18,15 +18,15 @@ public class Order {
 
     //конструктор
     public Order() {
-        this.id = id++;
+        this.id = id;
         this.localDateTime = LocalDateTime.now();
-        this.color = Color.COLOR4_4;
+        this.color = Color.COLOR4_0;
         this.price = 0;
         this.comment = "примечание";
     }
 
     public Order(Color color, long price, String comment) {
-        this.id =  id++;
+        this.id =  id;
         this.localDateTime = LocalDateTime.now();
         this.color = color;
         this.price = price;
