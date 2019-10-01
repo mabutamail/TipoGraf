@@ -1,3 +1,5 @@
+import java.util.EnumSet;
+
 enum Color {        //неявно - public static
     COLOR4_0("4+0") { public double apply(double x, double y) { return x + y; } },
     COLOR4_4("4+4") {},
