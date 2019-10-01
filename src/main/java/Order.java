@@ -1,14 +1,16 @@
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Entity
 public class Order {
     //поля - состояние
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private AtomicInteger id;
+    private int id = 0;
     private LocalDateTime localDateTime;
     private Color color;
     private long price;
@@ -16,15 +18,15 @@ public class Order {
 
     //конструктор
     public Order() {
-        //this.id = 1;
+        this.id = id++;
         this.localDateTime = LocalDateTime.now();
         this.color = Color.COLOR4_4;
         this.price = 0;
         this.comment = "примечание";
     }
 
-    public Order(AtomicInteger id, Color color, long price, String comment) {
-        this.id = id;
+    public Order(Color color, long price, String comment) {
+        this.id =  id++;
         this.localDateTime = LocalDateTime.now();
         this.color = color;
         this.price = price;

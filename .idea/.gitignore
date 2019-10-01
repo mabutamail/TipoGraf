@@ -12,3 +12,4 @@ target/
 *.info
 *.properties
 *.jar
+/shelf/
