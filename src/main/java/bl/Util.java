@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class Util {
 
-    private static final String DB_DRIVER = "org.mariadb.jdbc.Driver";
-    private static final String DB_URL = "mysql.dragon660.myjino.ru";
+    private static final String DB_DRIVER   = "org.mariadb.jdbc.Driver";
+    private static final String DB_URL      = "mysql.dragon660.myjino.ru";
     private static final String DB_USERNAME = "032670002_javadb";
     private static final String DB_PASSWORD = "javadb";
 

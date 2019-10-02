@@ -7,7 +7,7 @@ public class ProgramStart {
     public static void main(String[] args) {
 
         Util util = new Util();
-        util.getConnection();
+        //util.getConnection();
 
         List<Order> orderList = new ArrayList<>();
         orderList.add(new Order(Color.COLOR4_0, 1_234_567_890L,"доставка"));
