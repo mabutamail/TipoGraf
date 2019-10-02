@@ -15,4 +15,7 @@ enum Color {        //неявно - public static
 
     @Override
     public String toString() { return color; }
+
+
+
 }

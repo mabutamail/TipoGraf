@@ -4,4 +4,8 @@ public class Paper {
     int weight;
     String size;
     int price;
+
+
+
+
 }

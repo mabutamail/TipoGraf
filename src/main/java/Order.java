@@ -58,4 +58,6 @@ public class Order {
                 " цена " + price + " руб" +
                 " примечание: " + comment;
     }
+
+
 }
