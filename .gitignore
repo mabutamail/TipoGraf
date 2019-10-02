@@ -1,7 +1,11 @@
+# Default ignored files
+.idea/*
+target/*
+.idea
 *.iml
 *.iws
-*.jrtc
 *.class
+*.xml
 *.info
 *.properties
 *.jar
