@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tipograf" />
         <module name="TipoGraf" />
+        <module name="tipograf" />
       </profile>
     </annotationProcessing>
   </component>
