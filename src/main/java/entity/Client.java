@@ -1,28 +1,17 @@
 package entity;
 
-
-import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "PAPER")
-public class Paper {
+public class Client {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "NAME")
     private String name;
+    private String contact;
 
-    @Column(name = "WEIGHT")
-    private int weight;
-
-
-   // String size;
-   // int price;
-
-    public Paper() {
+    public Client(long id, String name, String contact) {
+        this.id = id;
+        this.name = name;
+        this.contact = contact;
     }
 
     public long getId() {
@@ -41,35 +30,35 @@ public class Paper {
         this.name = name;
     }
 
-    public int getWeight() {
-        return weight;
+    public String getContact() {
+        return contact;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Paper paper = (Paper) o;
-        return weight == paper.weight &&
-                Objects.equals(name, paper.name);
+        Client client = (Client) o;
+        return id == client.id &&
+                Objects.equals(name, client.name) &&
+                Objects.equals(contact, client.contact);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, weight);
+        return Objects.hash(id, name, contact);
     }
 
     @Override
     public String toString() {
-        return "Paper{" +
+        return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", weight=" + weight +
+                ", contact='" + contact + '\'' +
                 '}';
     }
-
 }
