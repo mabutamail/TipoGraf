@@ -20,6 +20,7 @@
         </plugins>
     </build>
     <dependencies>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -66,9 +67,6 @@
             <version>2.12.1</version>
         </dependency>
 
-
-
     </dependencies>
-
 
 </project>
