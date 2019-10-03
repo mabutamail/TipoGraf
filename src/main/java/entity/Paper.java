@@ -3,13 +3,21 @@ package entity;
 import java.util.Objects;
 
 public class Paper {
-    //int id;
+    long id;
     private String name;
     private int weight;
    // String size;
    // int price;
 
     public Paper() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -45,7 +53,8 @@ public class Paper {
     @Override
     public String toString() {
         return "Paper{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", weight=" + weight +
                 '}';
     }
