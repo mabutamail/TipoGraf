@@ -3,9 +3,7 @@ package bl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-/**
- * Created by vserdiuk on 2/12/17.
- */
+
 public class SessionUtil {
 
     private Session session;

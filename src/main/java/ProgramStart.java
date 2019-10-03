@@ -1,22 +1,23 @@
-import bl.Util;
 import entity.Color;
 import entity.Order;
 import entity.Paper;
 import service.PaperService;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProgramStart {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
-        Util util = new Util();
-        util.getConnection();
+//        Util util = new Util();
+//        util.getConnection();
 
         PaperService paperService = new PaperService();
+
         //создаем экземпляр
         Paper paper = new Paper();
-        paper.setId(1_234_567_890L);
+        //paper.setId(1_234_567_890L);
         paper.setName("меловка");
         paper.setWeight(300);
 

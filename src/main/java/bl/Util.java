@@ -11,25 +11,25 @@ public class Util {
 //    private static final String DB_USERNAME = "postgres";
 //    private static final String DB_PASSWORD = "111";
 
-    private static final String DB_DRIVER   = "org.mariadb.jdbc.Driver";
-    private static final String DB_URL      = "jdbc:mariadb://mysql.dragon660.myjino.ru:3306/dragon660_javadb";
-    private static final String DB_USERNAME = "032670002_javadb";
-    private static final String DB_PASSWORD = "javadb";
+//    private static final String DB_DRIVER   = "org.mariadb.jdbc.Driver";
+//    private static final String DB_URL      = "jdbc:mariadb://mysql.dragon660.myjino.ru:3306/dragon660_javadb";
+//    private static final String DB_USERNAME = "032670002_javadb";
+//    private static final String DB_PASSWORD = "javadb";
 
     //Connection connection = DriverManager.getConnection ("jdbc: mariadb: // localhost: 3306 / DB? User = root & password = myPassword");
 
-    public Connection getConnection(){
-        Connection connection = null;
-        try {
-            Class.forName(DB_DRIVER);
-            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-            System.out.println("connection OK");
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            System.out.println("Connection ERROR");
-        }
-        return connection;
-    }
+//    public Connection getConnection(){
+//        Connection connection = null;
+//        try {
+//            Class.forName(DB_DRIVER);
+//            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+//            System.out.println("connection OK");
+//
+//        } catch (ClassNotFoundException | SQLException e) {
+//            e.printStackTrace();
+//            System.out.println("Connection ERROR");
+//        }
+//        return connection;
+//    }
 
 }

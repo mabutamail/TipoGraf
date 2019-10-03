@@ -3,9 +3,7 @@ package bl;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/**
- * Created by vserdiuk on 2/8/2017.
- */
+
 public class HibernateUtil {
 
     private static final SessionFactory sessionFactory = buildSessionFactory();

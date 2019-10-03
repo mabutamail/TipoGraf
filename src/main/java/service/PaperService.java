@@ -1,54 +1,142 @@
+//package service;
+//
+//import bl.UtilOLD;
+//import dao.PaperDAO;
+//import entity.Paper;
+//
+//import java.sql.Connection;
+//import java.sql.PreparedStatement;
+//import java.sql.SQLException;
+//import java.util.List;
+//
+//public class PaperService extends UtilOLD implements PaperDAO {
+//
+//    Connection connection = getConnection();
+//
+//    @Override
+//    public void add(Paper paper) {
+//        PreparedStatement preparedStatement = null;
+//        String sql = "INSERT INTO PAPER (ID, NAME, WEIGHT) VALUES(?, ?, ?)";
+//        try {
+//            preparedStatement = connection.prepareStatement(sql);
+//            preparedStatement.setLong   (1, paper.getId());
+//            preparedStatement.setString (2, paper.getName());
+//            preparedStatement.setLong   (3, paper.getWeight());
+//
+//            preparedStatement.executeUpdate();
+//
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    @Override
+//    public List<Paper> getAll() {
+//        return null;
+//    }
+//
+//    @Override
+//    public Paper getById(Long id) {
+//        return null;
+//    }
+//
+//    @Override
+//    public void update(Paper paper) {
+//
+//    }
+//
+//    @Override
+//    public void remove(Paper paper) {
+//
+//    }
+//}
+
 package service;
 
-import bl.Util;
+import bl.HibernateUtil;
+import bl.SessionUtil;
 import dao.PaperDAO;
 import entity.Paper;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import org.hibernate.query.Query;
+
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class PaperService extends Util implements PaperDAO {
 
-    Connection connection = getConnection();
+public class PaperService extends SessionUtil {
 
-    @Override
     public void add(Paper paper) {
-        PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO PAPER (ID, NAME, WEIGHT) VALUES(?, ?, ?)";
-        try {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setLong   (1, paper.getId());
-            preparedStatement.setString (2, paper.getName());
-            preparedStatement.setLong   (3, paper.getWeight());
+        //open session with a transaction
+        openTransactionSession();
 
-            preparedStatement.executeUpdate();
+        Session session = getSession();
+        session.save(paper);
 
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        //close session with a transaction
+        closeTransactionSesstion();
     }
 
-    @Override
     public List<Paper> getAll() {
-        return null;
+        //open session with a transaction
+        openTransactionSession();
+
+        String sql = "SELECT * FROM PAPER";
+
+        Session session = getSession();
+        Query query = session.createNativeQuery(sql).addEntity(Paper.class);
+        List<Paper> paperList = query.list();
+
+        //close session with a transaction
+        closeTransactionSesstion();
+
+        return paperList;
     }
 
-    @Override
     public Paper getById(Long id) {
-        return null;
+        //open session with a transaction
+        openTransactionSession();
+
+        String sql = "SELECT * FROM PAPER WHERE ID = :id";
+
+        Session session = getSession();
+        Query query = session.createNativeQuery(sql).addEntity(Paper.class);
+        query.setParameter("id", id);
+
+        Paper paper = (Paper) query.getSingleResult();
+
+        //close session with a transaction
+        closeTransactionSesstion();
+
+        return paper;
     }
 
-    @Override
     public void update(Paper paper) {
+        //open session with a transaction
+        openTransactionSession();
 
+        Session session = getSession();
+        session.update(paper);
+
+        //close session with a transaction
+        closeTransactionSesstion();
     }
 
-    @Override
     public void remove(Paper paper) {
+        //open session with a transaction
+        openTransactionSession();
 
+        Session session = getSession();
+        session.remove(paper);
+
+        //close session with a transaction
+        closeTransactionSesstion();
     }
+
 }
