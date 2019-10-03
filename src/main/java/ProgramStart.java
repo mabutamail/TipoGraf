@@ -1,3 +1,4 @@
+import bl.HibernateUtil;
 import entity.Color;
 import entity.Order;
 import entity.Paper;
@@ -23,6 +24,7 @@ public class ProgramStart {
 
         //пишем в БД
         paperService.add(paper);
+        HibernateUtil.shutdown();
 
         List<Order> orderList = new ArrayList<>();
         orderList.add(new Order(Color.COLOR4_0, 1_234_567_890L,"доставка"));
