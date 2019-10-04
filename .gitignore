@@ -4,7 +4,7 @@ target/*
 .idea
 *.iml
 *.iws
-#*.xml
+*.xml
 *.info
 *.properties
 
