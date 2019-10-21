@@ -1,4 +1,4 @@
-package bl;
+package ru.zalex.tipograf.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +16,7 @@ public class Util {
 //    private static final String DB_USERNAME = "032670002_javadb";
 //    private static final String DB_PASSWORD = "javadb";
 
-    //Connection connection = DriverManager.getConnection ("jdbc: mariadb: // localhost: 3306 / DB? User = root & password = myPassword");
+    //Connection connection = DriverManager.getConnection ("jdbc: mariadb: // localhost: 3306 / DB? ru.trash.User = root & password = myPassword");
 
 //    public Connection getConnection(){
 //        Connection connection = null;

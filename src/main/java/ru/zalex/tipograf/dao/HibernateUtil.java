@@ -1,4 +1,4 @@
-package bl;
+package ru.zalex.tipograf.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

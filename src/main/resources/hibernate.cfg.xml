@@ -13,6 +13,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
 
-        <mapping class="entity.Paper"></mapping>
+        <mapping class="ru.zalex.tipograf.model.Paper"></mapping>
     </session-factory>
 </hibernate-configuration>

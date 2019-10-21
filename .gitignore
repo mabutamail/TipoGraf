@@ -1,7 +1,8 @@
 # Default ignored files
-.idea/*
-target/*
-.idea
+target
+out
+.idea/
+
 *.iml
 *.iws
 *.xml

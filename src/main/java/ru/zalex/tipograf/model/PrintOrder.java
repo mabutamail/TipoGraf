@@ -1,4 +1,4 @@
-package entity;
+package ru.zalex.tipograf.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,29 +8,26 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-public class Order {
+public class PrintOrder {
     //поля - состояние
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private LocalDateTime localDateTime;
-    private Color color;
-    private long price;
+    private Client client;
+    private Long price;
     private String comment;
 
     //конструктор
-    public Order() {
-        this.id = id;
+    public PrintOrder() {
         this.localDateTime = LocalDateTime.now();
-        this.color = Color.COLOR4_0;
-        this.price = 0;
+        this.price = 0L;
         this.comment = "примечание";
     }
 
-    public Order(Color color, long price, String comment) {
-        this.id =  id;
+    public PrintOrder(Client client, Long price, String comment) {
         this.localDateTime = LocalDateTime.now();
-        this.color = color;
+        this.client = client;
         this.price = price;
         this.comment = comment;
     }
@@ -42,7 +39,7 @@ public class Order {
 //    public void setLocalDateTime(LocalDateTime localDateTime) {
 //        this.localDateTime = localDateTime;
 //    }
-//    public void setColor(Color color) {
+//    public void setColor(ru.zalex.tipograf.model.Color color) {
 //        this.color = color;
 //    }
 //    public void setPrice(long price) {
@@ -52,14 +49,14 @@ public class Order {
 //        this.comment = comment;
 //    }
 
+
+
     @Override
     public String toString() {
         return "Заказ № " + id +
                 " дата " + localDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yy HH:mm:ss")) +
-                " цвет " + color +
+                " цвет " + client +
                 " цена " + price + " руб" +
                 " примечание: " + comment;
     }
-
-
 }

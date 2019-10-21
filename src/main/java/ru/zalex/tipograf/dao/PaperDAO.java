@@ -1,6 +1,6 @@
-package dao;
+package ru.zalex.tipograf.dao;
 
-import entity.Paper;
+import ru.zalex.tipograf.model.Paper;
 
 import java.util.List;
 

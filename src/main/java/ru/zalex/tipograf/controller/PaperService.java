@@ -1,8 +1,8 @@
 //package service;
 //
 //import bl.UtilOLD;
-//import dao.PaperDAO;
-//import entity.Paper;
+//import ru.zalex.tipograf.dao.PaperDAO;
+//import ru.zalex.tipograf.model.Paper;
 //
 //import java.sql.Connection;
 //import java.sql.PreparedStatement;
@@ -53,20 +53,14 @@
 //    }
 //}
 
-package service;
+package ru.zalex.tipograf.controller;
 
-import bl.HibernateUtil;
-import bl.SessionUtil;
-import dao.PaperDAO;
-import entity.Paper;
+import ru.zalex.tipograf.dao.SessionUtil;
+import ru.zalex.tipograf.model.Paper;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import org.hibernate.query.Query;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 

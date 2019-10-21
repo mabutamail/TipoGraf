@@ -1,4 +1,4 @@
-package entity;
+package ru.zalex.tipograf.model;
 
 import java.util.Objects;
 
