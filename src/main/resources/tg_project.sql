@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS tg_client;
-DROP TABLE IF EXISTS tg_order;
+DROP TABLE IF EXISTS tg_client CASCADE;
+DROP TABLE IF EXISTS tg_order CASCADE;
 
 create table tg_client
 (
@@ -17,5 +17,5 @@ create table tg_order
     order_price integer not null,
     order_comment varchar(100),
     primary key (order_id),
-    foreign key (order_client) references tg_client (client_id) on delete restrict
+    foreign key (order_client) references tg_client(client_id) on delete restrict
 );
