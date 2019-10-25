@@ -5,7 +5,7 @@ out
 
 *.iml
 *.iws
-*.xml
+# *.xml
 *.info
 *.properties
 
