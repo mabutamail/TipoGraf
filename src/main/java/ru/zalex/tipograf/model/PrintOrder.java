@@ -1,37 +1,41 @@
 package ru.zalex.tipograf.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Entity
+@Table(name ="tg_order")
 public class PrintOrder {
     //поля - состояние
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="order_id")
     private Long id;
+    @Column(name ="order_createDate")
     private LocalDateTime localDateTime;
+    @Column(name ="order_client")
     private Client client;
+    @Column(name ="order_price")
     private Long price;
+    @Column(name ="order_comment")
     private String comment;
+    @Column(name ="order_paid")
+    private boolean paid;
 
-    //конструктор
-    public PrintOrder() {
-        this.localDateTime = LocalDateTime.now();
-        this.price = 0L;
-        this.comment = "примечание";
-    }
-
-    public PrintOrder(Client client, Long price, String comment) {
-        this.localDateTime = LocalDateTime.now();
-        this.client = client;
-        this.price = price;
-        this.comment = comment;
-    }
+//    //конструктор
+//    public PrintOrder() {
+//        this.localDateTime = LocalDateTime.now();
+//        this.price = 0L;
+//        this.comment = "примечание";
+//    }
+//
+//    public PrintOrder(Client client, Long price, String comment) {
+//        this.localDateTime = LocalDateTime.now();
+//        this.client = client;
+//        this.price = price;
+//        this.comment = comment;
+//    }
 
     //геттеры и сеттеры
 
@@ -74,6 +78,14 @@ public class PrintOrder {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
     }
 
     @Override
