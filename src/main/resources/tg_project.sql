@@ -12,9 +12,9 @@ create table tg_client
 create table tg_order
 (
     order_id serial,
-    order_createDate date not null default 23-10-2019,
-    order_client integer  not null default 1,
-    order_price integer not null default 1000,
+    order_createDate date not null default 01-01-2020,
+    order_client integer  not null,
+    order_price integer not null default 0,
     order_comment varchar(100),
     order_paid boolean default false not null,
     primary key (order_id),

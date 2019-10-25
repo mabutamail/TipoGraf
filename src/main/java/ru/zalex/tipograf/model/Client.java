@@ -1,17 +1,29 @@
 package ru.zalex.tipograf.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name ="tg_client")
 public class Client {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="client_id")
+    private Long id;
+    @Column(name ="client_name")
     private String name;
-    private String contact;
+    @Column(name ="client_comment")
+    private String comment;
 
-    public Client(long id, String name, String contact) {
+
+    public Client() {
+    }
+
+    public Client(long id, String name, String comment) {
         this.id = id;
         this.name = name;
-        this.contact = contact;
+        this.comment = comment;
     }
 
     public long getId() {
@@ -30,12 +42,12 @@ public class Client {
         this.name = name;
     }
 
-    public String getContact() {
-        return contact;
+    public String getComment() {
+        return comment;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     @Override
@@ -45,12 +57,12 @@ public class Client {
         Client client = (Client) o;
         return id == client.id &&
                 Objects.equals(name, client.name) &&
-                Objects.equals(contact, client.contact);
+                Objects.equals(comment, client.comment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, contact);
+        return Objects.hash(id, name, comment);
     }
 
     @Override
@@ -58,7 +70,7 @@ public class Client {
         return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", contact='" + contact + '\'' +
+                ", contact='" + comment + '\'' +
                 '}';
     }
 }

@@ -14,6 +14,7 @@ public class PrintOrder {
     private Long id;
     @Column(name ="order_createDate")
     private LocalDateTime localDateTime;
+    @ManyToOne (cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @Column(name ="order_client")
     private Client client;
     @Column(name ="order_price")
@@ -91,9 +92,10 @@ public class PrintOrder {
     @Override
     public String toString() {
         return "Заказ № " + id +
-                " дата " + localDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yy HH:mm:ss")) +
-                " цвет " + client +
+                " дата " + localDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yy HH:mm")) +
+                " клиент " + client +
                 " цена " + price + " руб" +
-                " примечание: " + comment;
+                " примечание: " + comment +
+                " оплачен д/н: " + paid;
     }
 }
