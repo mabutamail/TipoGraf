@@ -19,7 +19,7 @@
 //        String sql = "INSERT INTO PAPER (ID, NAME, WEIGHT) VALUES(?, ?, ?)";
 //        try {
 //            preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setLong   (1, paper.getId());
+//            preparedStatement.setLong   (1, paper.getOrderId());
 //            preparedStatement.setString (2, paper.getName());
 //            preparedStatement.setLong   (3, paper.getWeight());
 //
