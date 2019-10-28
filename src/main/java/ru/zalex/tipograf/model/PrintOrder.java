@@ -3,33 +3,36 @@ package ru.zalex.tipograf.model;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name ="tg_order")
+@Table(name = "tg_order")
 public class PrintOrder {
     //поля - состояние
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="order_id")
+    @Column(name = "order_id")
     private Long id;
-    @Column(name ="order_createDate")
+    @Column(name = "order_createDate")
     private LocalDateTime localDateTime;
-    @ManyToOne (cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-    @Column(name ="order_client")
+    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @Column(name = "order_client")
     private Client client;
-    @Column(name ="order_price")
+    @Column(name = "order_price")
     private Long price;
-    @Column(name ="order_comment")
+    @Column(name = "order_comment")
     private String comment;
-    @Column(name ="order_paid")
+    @Column(name = "order_paid")
     private boolean paid;
 
-//    //конструктор
-//    public PrintOrder() {
-//        this.localDateTime = LocalDateTime.now();
-//        this.price = 0L;
-//        this.comment = "примечание";
-//    }
+
+    //конструктор
+    public PrintOrder() {
+        this.localDateTime = LocalDateTime.now();
+        this.price = 0L;
+        this.comment = "примечание";
+    }
 //
 //    public PrintOrder(Client client, Long price, String comment) {
 //        this.localDateTime = LocalDateTime.now();
@@ -92,7 +95,7 @@ public class PrintOrder {
     @Override
     public String toString() {
         return "Заказ № " + id +
-                " дата " + localDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yy HH:mm")) +
+                " дата " + localDateTime.format(DateTimeFormatter.ofPattern("dd.MM.yy HH:mm")) +
                 " клиент " + client +
                 " цена " + price + " руб" +
                 " примечание: " + comment +
