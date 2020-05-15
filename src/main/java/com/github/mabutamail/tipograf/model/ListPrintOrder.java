@@ -1,4 +1,4 @@
-package ru.zalex.tipograf.model;
+package com.github.mabutamail.tipograf.model;
 
 import java.util.ArrayList;
 import java.util.List;

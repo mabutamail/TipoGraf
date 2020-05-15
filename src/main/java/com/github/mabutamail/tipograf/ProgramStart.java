@@ -1,8 +1,6 @@
-package ru.zalex.tipograf;
+package com.github.mabutamail.tipograf;
 
-import ru.zalex.tipograf.model.Client;
-import ru.zalex.tipograf.model.OrderCondition;
-import ru.zalex.tipograf.model.PrintOrder;
+import com.github.mabutamail.tipograf.model.PrintOrder;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

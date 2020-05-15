@@ -1,6 +1,6 @@
-package ru.zalex.tipograf.dao;
+package com.github.mabutamail.tipograf.dao;
 
-import ru.zalex.tipograf.model.PrintOrder;
+import com.github.mabutamail.tipograf.model.PrintOrder;
 
 import java.util.List;
 

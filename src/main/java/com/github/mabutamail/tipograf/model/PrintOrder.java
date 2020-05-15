@@ -1,7 +1,6 @@
-package ru.zalex.tipograf.model;
+package com.github.mabutamail.tipograf.model;
 
 import javax.persistence.*;
-import java.time.Clock;
 import java.time.LocalDateTime;
 
 @Entity
