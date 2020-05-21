@@ -1,6 +1,6 @@
 package com.github.mabutamail.tipograf.dao;
 
-import com.github.mabutamail.tipograf.model.PrintOrder;
+import com.github.mabutamail.tipograf.models.PrintOrder;
 
 import java.util.List;
 

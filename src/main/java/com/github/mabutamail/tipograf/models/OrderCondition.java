@@ -1,8 +1,8 @@
-package com.github.mabutamail.tipograf.model;
+package com.github.mabutamail.tipograf.models;
 
 public enum OrderCondition {
     ACCEPTED("принят") {},
-    IN_PROGRESS("в работе") {},
+    IN_PROGRESS("на производстве") {},
     IN_STOCK("на складе") {},
     IS_EXECUTED("выполнен") {},
     DELETED("удалён") {};

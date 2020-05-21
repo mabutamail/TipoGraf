@@ -3,20 +3,20 @@ DROP TABLE IF EXISTS tg_order CASCADE;
 
 create table tg_client
 (
-    client_id serial,
-    client_name varchar(100) not null,
-    client_comment varchar(100),
-    primary key (client_id)
+    id serial,
+    name varchar(100) not null,
+    comment varchar(100),
+    primary key (id)
 );
 
 create table tg_order
 (
-    order_id serial,
-    order_createDate date not null,
-    order_client integer  not null,
-    order_price integer not null default 0,
-    order_comment varchar(100),
-    order_condition varchar(100) not null default 'ACCEPTED',
-    primary key (order_id),
+    id serial,
+    createDate date not null,
+    client integer  not null,
+    price integer not null default 0,
+    comment varchar(100),
+    condition varchar(100) not null default 1,
+    primary key (id),
     foreign key (order_client) references tg_client(client_id) on delete restrict
 );
