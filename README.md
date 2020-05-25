@@ -15,20 +15,23 @@
 -   сущность Class PrintOrder (заказ) с полями: номер, дата-время, клиент, цена, комментарий, состояние
 -   Enum Condition (состояние) с полями: принят, в работе, на складе, выполнен, удалён
 -   сущность Client (клиент) с полями: имя, примечание
--   маппинг POJO классов аннотациями
+-   маппинг POJO классов аннотациями https://mkyong.com/hibernate/hibernate-one-to-many-relationship-example-annotation/
 -   тестовые данные на SQL (DDL, DML)
 
 ----------------------------                        спринт 2                    ----------------------------
-- fjywaydb.org ознакомился
 /*TODO
-OrderDAO и OrderDAOImpl
-рефакторинг с hibernate.cfg.xml (Hibernate) на persistence.xml (JPA)
+dao слой OrderDAO и OrderDAOImpl 
+перенести создание заказа в junit                                           done
+аннотации к геттерам перенести в объявление полей                           done
+аннотация к enum OrderCondition @Enumerated(value = EnumType.STRING)        done
+результаты тестов записывать еще и в файл                                   done
+
+рефакторинг с hibernate.cfg.xml (Hibernate) на persistence.xml (JPA) entity manager
+fjywaydb.org закончить с миграцией
 пул коннектов
 
 ----------------------------                        вопросы?                     ----------------------------
-
-1) прописывать ли транзитивные зависимости в pom.xml
-2) logback через hibernate или slf4j
-3) GenerationType.IDENTITY ERROR через AVTO норм
-4) на чем пул коннектов
-*/
+1) mvn dependency:tree mvn dependency:list logger - logback через hibernate-jboss или slf4j
+2) цена в long - как быть с копейками?
+3) GenerationType.IDENTITY ERROR через AVTO норм --does not support identity key generation
+4) выбор JDK для коммерческой разработки AdoptOpenJDK

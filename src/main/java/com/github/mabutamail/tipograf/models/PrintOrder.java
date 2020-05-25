@@ -8,11 +8,19 @@ import java.time.LocalDateTime;
 @Table(name = "tg_order")
 public class PrintOrder implements Serializable {
 
-    private Integer orderId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ORDER_ID", unique = true, nullable = false)
+    private Long orderId;
+    @Column(name = "DATE", unique = true, nullable = false)
     private LocalDateTime createDate;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "CLIENT_ID", nullable = false)
     private Client client;
     private Long price;
     private String comment;
+    @Column(name = "CONDITION", nullable = false)
+    @Enumerated(value = EnumType.STRING)
     private OrderCondition condition;
 
     public PrintOrder() {
@@ -35,19 +43,14 @@ public class PrintOrder implements Serializable {
         this.condition = OrderCondition.ACCEPTED;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ORDER_ID", unique = true, nullable = false)
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return this.orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    //    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DATE", unique = true, nullable = false)
     public LocalDateTime getCreateDate() {
         return this.createDate;
     }
@@ -56,8 +59,6 @@ public class PrintOrder implements Serializable {
         this.createDate = LocalDateTime.now();
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CLIENT_ID", nullable = false)
     public Client getClient() {
         return this.client;
     }
@@ -82,12 +83,23 @@ public class PrintOrder implements Serializable {
         this.comment = comment;
     }
 
-    @Column(name = "CONDITION", nullable = false)
     public OrderCondition getCondition() {
         return condition;
     }
 
     public void setCondition(OrderCondition condition) {
         this.condition = condition;
+    }
+
+    @Override
+    public String toString() {
+        return "PrintOrder{" +
+                "orderId=" + orderId +
+                ", createDate=" + createDate +
+                ", client=" + client +
+                ", price=" + price +
+                ", comment='" + comment + '\'' +
+                ", condition=" + condition +
+                '}';
     }
 }

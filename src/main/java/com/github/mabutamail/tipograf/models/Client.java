@@ -9,9 +9,15 @@ import java.util.Set;
 @Table(name = "tg_client")
 public class Client implements Serializable {
 
-    private Integer clientId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "CLIENT_ID", unique = true, nullable = false)
+    private Long clientId;
+    @Column(name = "CLIENT_NAME", unique = true, nullable = false, length = 20)
     private String clientName;
+    @Column(name = "CLIENT_COMMENT", nullable = false, length = 40)
     private String clientComment;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     private Set<PrintOrder> printOrders = new HashSet<>();
 
     public Client() {
@@ -28,18 +34,14 @@ public class Client implements Serializable {
         this.printOrders = printOrders;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CLIENT_ID", unique = true, nullable = false)
-    public Integer getClientId() {
+    public Long getClientId() {
         return this.clientId;
     }
 
-    public void setClientId(Integer clientId) {
+    public void setClientId(Long clientId) {
         this.clientId = clientId;
     }
 
-    @Column(name = "CLIENT_NAME", unique = true, nullable = false, length = 20)
     public String getClientName() {
         return this.clientName;
     }
@@ -48,7 +50,6 @@ public class Client implements Serializable {
         this.clientName = clientName;
     }
 
-    @Column(name = "CLIENT_COMMENT", unique = true, nullable = false, length = 40)
     public String getClientComment() {
         return this.clientComment;
     }
@@ -57,13 +58,20 @@ public class Client implements Serializable {
         this.clientComment = clientComment;
     }
 
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     public Set<PrintOrder> getPrintOrders() {
         return this.printOrders;
     }
 
     public void setPrintOrders(Set<PrintOrder> printOrders) {
         this.printOrders = printOrders;
+    }
+
+    @Override
+    public String toString() {
+        return "\nClient{" +
+                "clientId=" + clientId +
+                ", clientName='" + clientName + '\'' +
+                ", clientComment='" + clientComment + '\'' +
+                '}' + "\n";
     }
 }

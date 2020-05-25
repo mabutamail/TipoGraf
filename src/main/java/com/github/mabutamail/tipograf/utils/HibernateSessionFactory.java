@@ -11,12 +11,6 @@ public class HibernateSessionFactory {
 
     public static SessionFactory buildSessionFactory() {
         try {
-//            Configuration configuration = new Configuration().configure();
-//            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().
-//                    applySettings(configuration.getProperties()).build();
-//            configuration.addAnnotatedClass(PrintOrder.class);
-//            configuration.addAnnotatedClass(Client.class);
-
             logger.info("====================   Create the SessionFactory from hibernate.cfg.xml    ====================");
             return new Configuration().configure().buildSessionFactory();
         } catch (Exception ex) {
