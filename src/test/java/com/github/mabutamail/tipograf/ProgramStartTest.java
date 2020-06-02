@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class ProgramStartTest {
@@ -17,8 +18,8 @@ public class ProgramStartTest {
     @Test
     public void main() {
         logger.info("====================       Начало программы        ====================");
-//        sessionExample();
         jpaExample();
+        hibernateExample();
 
         logger.info("====================       Конец программы         ====================");
 
@@ -30,12 +31,14 @@ public class ProgramStartTest {
 
     }
 
+
     private void jpaExample() {
-        EntityManager em = Persistence.createEntityManagerFactory("TIPOGRAF").createEntityManager();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TIPOGRAF");
+        EntityManager em = emf.createEntityManager();
         logger.info("====================       создан Entity Manager         ====================");
 
         em.getTransaction().begin();
-        logger.info("====================       начало транзакции         ====================");
+        logger.info("====================       начало транзакции Entity Manager         ====================");
 
         Client clientEM = new Client();
         clientEM.setClientName("Рога и Копыта _ Entity Manager");
@@ -47,7 +50,6 @@ public class ProgramStartTest {
         zakazEM.setClient(clientEM);
         zakazEM.setPrice(222_456L);
         zakazEM.setComment("оплата наличными, готовность - к 31.05.20 17:00 Entity Manager");
-        zakazEM.setClient(clientEM);
         clientEM.getPrintOrders().add(zakazEM);
         em.persist(zakazEM);
         logger.info("====================       Заказ создан Entity Manager         ====================");
@@ -55,9 +57,24 @@ public class ProgramStartTest {
         em.getTransaction().commit();
         logger.info("====================       Транзакция завершена Entity Manager         ====================");
 
-        logger.info("====================       Список клиентов1 Entity Manager         ====================");
+
+        em.getTransaction().begin();
+        logger.info("====================       начало транзакции Entity Manager         ====================");
+
+        Client clientEM2 = new Client();
+        clientEM2.setClientName("Рога и Копыта _ Entity Manager2222");
+        clientEM2.setClientComment("тел (495) 123-45-67 Entity Manager2222");
+        em.persist(clientEM2);
+        logger.info("====================       Клиент создан Entity Manager 2222        ====================");
+
+        em.getTransaction().commit();
+        logger.info("====================       Транзакция завершена Entity Manager         ====================");
+
+
+        logger.info("\n\n====================       Список клиентов Entity Manager         ====================");
         logger.info("{}\n", em.createQuery("from Client").getResultList());
-        logger.info("====================       Список заказов Entity Manager         ====================");
+
+        logger.info("\n\n====================       Список заказов Entity Manager         ====================");
         logger.info("{}\n", em.createQuery("from PrintOrder").getResultList());
 
         em.close();
@@ -65,7 +82,7 @@ public class ProgramStartTest {
     }
 
 
-    private void sessionExample() {
+    private void hibernateExample() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         logger.info("====================       получили коннект к БД         ====================");
 
@@ -82,7 +99,6 @@ public class ProgramStartTest {
         zakaz1.setClient(client1);
         zakaz1.setPrice(123_456L);
         zakaz1.setComment("оплата наличными, готовность - к 31.05.20 17:00");
-        zakaz1.setClient(client1);
         client1.getPrintOrders().add(zakaz1);
         session.save(zakaz1);
         logger.info("====================       Заказ создан         ====================");
@@ -97,9 +113,10 @@ public class ProgramStartTest {
         session.save(client2);
         session.getTransaction().commit();
 
-        logger.info("====================       Список клиентов1         ====================");
+        logger.info("\n\n====================       Список клиентов         ====================");
         logger.info("{}\n", session.createQuery("from Client").list());
-        logger.info("====================       Список заказов         ====================");
+
+        logger.info("\n\n====================       Список заказов         ====================");
         logger.info("{}\n", session.createQuery("from PrintOrder").list());
 
         session.close();

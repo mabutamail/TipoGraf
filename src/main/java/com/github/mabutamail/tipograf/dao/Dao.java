@@ -1,17 +1,20 @@
 package com.github.mabutamail.tipograf.dao;
 
-import com.github.mabutamail.tipograf.models.PrintOrder;
+import java.io.Serializable;
 
-public interface Dao {
-//    CRUD Create Read Update Delete
-    void create(Object o);
+public interface Dao <T, PK extends Serializable> {
 
-    PrintOrder readById(Long id);
+    /** Сохранить объект newInstance в базе данных */
+    PK create(T newInstance);
 
-//    List<PrintOrder> getAll();
+    /** Извлечь объект, предварительно сохраненный в базе данных, используя
+     *   указанный id в качестве первичного ключа
+     */
+    T read(PK id);
 
-    void update(Object o);
+    /** Сохранить изменения, сделанные в объекте.  */
+    void update(T transientObject);
 
-    void delete(Object o);
-
+    /** Удалить объект из базы данных */
+    void delete(T persistentObject);
 }

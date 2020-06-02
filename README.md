@@ -20,18 +20,15 @@
 
 ----------------------------                        спринт 2                    ----------------------------
 /*TODO
-dao слой OrderDAO и OrderDAOImpl 
-перенести создание заказа в junit                                           done
-аннотации к геттерам перенести в объявление полей                           done
-аннотация к enum OrderCondition @Enumerated(value = EnumType.STRING)        done
-результаты тестов записывать еще и в файл                                   done
+dao слой OrderDAO и OrderDAOImpl
+flywaydb.org закончить с миграцией
 
-рефакторинг с hibernate.cfg.xml (Hibernate) на persistence.xml (JPA) entity manager
-fjywaydb.org закончить с миграцией
-пул коннектов
+configure the C3P0 connection pool in Hibernate (hibernate.cfg.xml)                     done
+перенести создание заказа в junit                                                       done
+аннотации к геттерам перенести в объявление полей                                       done
+аннотация к enum OrderCondition @Enumerated(value = EnumType.STRING)                    done
+результаты тестов записывать еще и в файл                                               done
+рефакторинг с hibernate.cfg.xml (Hibernate) на persistence.xml (JPA) entity manager     done
 
 ----------------------------                        вопросы?                     ----------------------------
-1) mvn dependency:tree mvn dependency:list logger - logback через hibernate-jboss или slf4j
-2) цена в long - как быть с копейками?
-3) GenerationType.IDENTITY ERROR через AVTO норм --does not support identity key generation
-4) выбор JDK для коммерческой разработки AdoptOpenJDK
+1)

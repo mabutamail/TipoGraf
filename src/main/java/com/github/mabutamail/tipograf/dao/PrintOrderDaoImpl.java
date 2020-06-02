@@ -1,10 +1,7 @@
 package com.github.mabutamail.tipograf.dao;
 
-import com.github.mabutamail.tipograf.utils.HibernateSessionFactory;
-import org.hibernate.Session;
-
 public class PrintOrderDaoImpl {
-    Session session = HibernateSessionFactory.getSessionFactory().openSession();
+//    Session session = HibernateSessionFactory.getSessionFactory().openSession();
 
 //    @Override
 //    public void create(Object o) {

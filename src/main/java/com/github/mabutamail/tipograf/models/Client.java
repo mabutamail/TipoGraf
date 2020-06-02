@@ -10,14 +10,14 @@ import java.util.Set;
 public class Client implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CLIENT_ID", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "CLIENT_ID")
     private Long clientId;
-    @Column(name = "CLIENT_NAME", unique = true, nullable = false, length = 20)
+    @Column(name = "CLIENT_NAME", unique = true, nullable = false, length = 40)
     private String clientName;
     @Column(name = "CLIENT_COMMENT", nullable = false, length = 40)
     private String clientComment;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "client")
     private Set<PrintOrder> printOrders = new HashSet<>();
 
     public Client() {

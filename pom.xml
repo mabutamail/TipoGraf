@@ -38,7 +38,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>${flyway-core.version}</version>
                 <configuration>
-                    <url>jdbc:postgresql://localhost:5433/tipoGrafDB</url>
+                    <url>jdbc:postgresql://localhost:5432/tipoGrafDB</url>
                     <user>postgres</user>
                     <password>111</password>
                 </configuration>
@@ -95,6 +95,20 @@
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>${jpa.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway-core.version}</version>
+        </dependency>
+
+
 
 
     </dependencies>

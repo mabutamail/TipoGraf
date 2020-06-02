@@ -9,12 +9,12 @@ import java.time.LocalDateTime;
 public class PrintOrder implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ORDER_ID", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ORDER_ID")
     private Long orderId;
     @Column(name = "DATE", unique = true, nullable = false)
     private LocalDateTime createDate;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "CLIENT_ID", nullable = false)
     private Client client;
     private Long price;

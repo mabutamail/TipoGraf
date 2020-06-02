@@ -1,9 +1,7 @@
 package com.github.mabutamail.tipograf.dao;
 
-import com.github.mabutamail.tipograf.models.Client;
+import com.github.mabutamail.tipograf.service.ClientService;
 import org.junit.Test;
-
-import static com.github.mabutamail.tipograf.ProgramStartTest.logger;
 
 public class ClientServiceTest {
     ClientService clientService = new ClientService();
@@ -11,13 +9,13 @@ public class ClientServiceTest {
     @Test
     public void testSaveRecord() throws Exception {
 //        //Создаем клиента для записи в БД
-        Client client33 = new Client();
-        client33.setClientName("Рога и Копыта 3 inc");
-        client33.setClientComment("тел (495) 123-45-67");
-        //Записываем в БД
-//        client33 = clientService.add(client33);
-        //Вывели записанную в БД запись
-        logger.info("\n====================       Клиент создан         ====================\n{}\n", client33);
+//        Client client33 = new Client();
+//        client33.setClientName("Рога и Копыта 3 inc");
+//        client33.setClientComment("тел (495) 123-45-67");
+//        //Записываем в БД
+////        client33 = clientService.add(client33);
+//        //Вывели записанную в БД запись
+//        logger.info("\n====================       Клиент создан         ====================\n{}\n", client33);
     }
 
     @Test
