@@ -22,15 +22,14 @@
 ----------------------------                        спринт 2                    ----------------------------
 
 /*TODO
-dao слой OrderDAO и OrderDAOImpl
-flywaydb.org закончить с миграцией
-
-configure the C3P0 connection pool in Hibernate (hibernate.cfg.xml)                     done
-перенести создание заказа в junit                                                       done
-аннотации к геттерам перенести в объявление полей                                       done
-аннотация к enum OrderCondition @Enumerated(value = EnumType.STRING)                    done
-результаты тестов записывать еще и в файл                                               done
-рефакторинг с hibernate.cfg.xml (Hibernate) на persistence.xml (JPA) entity manager     done
+-   dao слой OrderDAO и OrderDAOImpl                                                        in action
+-   flywaydb.org закончить с миграцией                                                      done
+-   configure the C3P0 connection pool in Hibernate (hibernate.cfg.xml)                     done
+-   перенести создание заказа в junit                                                       done
+-   аннотации к геттерам перенести в объявление полей                                       done
+-   аннотация к enum OrderCondition @Enumerated(value = EnumType.STRING)                    done
+-   результаты тестов записывать еще и в файл                                               done
+-   рефакторинг с hibernate.cfg.xml (Hibernate) на persistence.xml (JPA) entity manager     done
 
 ----------------------------                        вопросы?                     ----------------------------
-1)
+1)  
