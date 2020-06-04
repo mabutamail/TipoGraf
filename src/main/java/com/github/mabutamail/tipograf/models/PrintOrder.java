@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tg_order")
+@NamedQuery(name = "PrintOrder.getAll", query = "SELECT c from PrintOrder c")
 public class PrintOrder implements Serializable {
 
     @Id

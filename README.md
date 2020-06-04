@@ -15,10 +15,12 @@
 -   сущность Class PrintOrder (заказ) с полями: номер, дата-время, клиент, цена, комментарий, состояние
 -   Enum Condition (состояние) с полями: принят, в работе, на складе, выполнен, удалён
 -   сущность Client (клиент) с полями: имя, примечание
--   маппинг POJO классов аннотациями https://mkyong.com/hibernate/hibernate-one-to-many-relationship-example-annotation/
+-   маппинг POJO классов аннотациями 
+    https://mkyong.com/hibernate/hibernate-one-to-many-relationship-example-annotation/
 -   тестовые данные на SQL (DDL, DML)
 
 ----------------------------                        спринт 2                    ----------------------------
+
 /*TODO
 dao слой OrderDAO и OrderDAOImpl
 flywaydb.org закончить с миграцией

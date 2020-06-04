@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tg_client")
+@NamedQuery(name = "Client.getAll", query = "SELECT c from Client c")
 public class Client implements Serializable {
 
     @Id

@@ -4,6 +4,8 @@ import com.github.mabutamail.tipograf.models.Client;
 import com.github.mabutamail.tipograf.models.PrintOrder;
 import com.github.mabutamail.tipograf.utils.HibernateSessionFactory;
 import org.hibernate.Session;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,16 +14,43 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import static org.junit.Assert.assertNotNull;
+
 public class ProgramStartTest {
     public final static Logger logger = LoggerFactory.getLogger(com.github.mabutamail.tipograf.ProgramStart.class);
 
+    private EntityManager em;
+
+    @Before
+    public void init() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TIPOGRAF");
+        logger.info("====================       Entity Manager Factory создана         ====================");
+        em = emf.createEntityManager();
+        logger.info("====================       Entity Manager создан         ====================");
+        em.getTransaction().begin();
+        logger.info("====================       начало транзакции Entity Manager         ====================");
+    }
+
+    @After
+    public void close() {
+        if (em.getTransaction().isActive()) {
+            em.getTransaction().commit();
+        logger.info("====================       Транзакция завершена Entity Manager         ====================");
+        }
+        em.getEntityManagerFactory().close();
+        logger.info("====================       Entity Manager Factory закрыта         ====================");
+        em.close();
+        logger.info("====================       Entity Manager  закрыт        ====================");
+    }
+
     @Test
     public void main() {
-        logger.info("====================       Начало программы        ====================");
-        jpaExample();
-        hibernateExample();
+        logger.info("====================       Начало метода main        ====================");
 
-        logger.info("====================       Конец программы         ====================");
+        jpaExample();
+//        hibernateExample();
+
+        logger.info("====================       Конец метода main         ====================");
 
 //        logger.error("ERROR - информация об ошибках, возникших в работе модулей");
 //        logger.warn("WARNING - информация о событиях, которые могут привести к ошибкам в работе модулей");
@@ -31,20 +60,21 @@ public class ProgramStartTest {
 
     }
 
+    @Test
+    public void shouldFindClient() {
+        Client client = new Client("Клиент №1","слоны пошли на север");
+        em.persist(client);
+        Client result = em.find(Client.class, 1L);
+        assertNotNull(result);
+        logger.info("\n\n====================       \nКлиент создан \n{}\n====================\n", client.toString());
+    }
 
-    private void jpaExample() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TIPOGRAF");
-        EntityManager em = emf.createEntityManager();
-        logger.info("====================       создан Entity Manager         ====================");
-
-        em.getTransaction().begin();
-        logger.info("====================       начало транзакции Entity Manager         ====================");
-
+    public void jpaExample() {
         Client clientEM = new Client();
         clientEM.setClientName("Рога и Копыта _ Entity Manager");
         clientEM.setClientComment("тел (495) 123-45-67 Entity Manager");
         em.persist(clientEM);
-        logger.info("====================       Клиент создан Entity Manager        ====================");
+        logger.info("====================       Клиент1 создан Entity Manager        ====================");
 
         PrintOrder zakazEM = new PrintOrder();
         zakazEM.setClient(clientEM);
@@ -54,33 +84,18 @@ public class ProgramStartTest {
         em.persist(zakazEM);
         logger.info("====================       Заказ создан Entity Manager         ====================");
 
-        em.getTransaction().commit();
-        logger.info("====================       Транзакция завершена Entity Manager         ====================");
-
-
-        em.getTransaction().begin();
-        logger.info("====================       начало транзакции Entity Manager         ====================");
-
         Client clientEM2 = new Client();
         clientEM2.setClientName("Рога и Копыта _ Entity Manager2222");
         clientEM2.setClientComment("тел (495) 123-45-67 Entity Manager2222");
         em.persist(clientEM2);
-        logger.info("====================       Клиент создан Entity Manager 2222        ====================");
-
-        em.getTransaction().commit();
-        logger.info("====================       Транзакция завершена Entity Manager         ====================");
-
+        logger.info("====================       Клиент2 создан Entity Manager        ====================");
 
         logger.info("\n\n====================       Список клиентов Entity Manager         ====================");
         logger.info("{}\n", em.createQuery("from Client").getResultList());
 
         logger.info("\n\n====================       Список заказов Entity Manager         ====================");
         logger.info("{}\n", em.createQuery("from PrintOrder").getResultList());
-
-        em.close();
-        logger.info("====================       Entity Manager закрыт         ====================");
     }
-
 
     private void hibernateExample() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
@@ -122,4 +137,5 @@ public class ProgramStartTest {
         session.close();
         logger.info("====================       Сессия закрыта         ====================");
     }
+
 }

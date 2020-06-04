@@ -1,26 +1,46 @@
 package com.github.mabutamail.tipograf.dao;
 
-import java.io.Serializable;
+import com.github.mabutamail.tipograf.models.Client;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
+
+import static com.github.mabutamail.tipograf.ProgramStart.emf;
 
 public class ClientDaoJpaImpl implements Dao {
+    public EntityManager em = emf.createEntityManager();
 
     @Override
-    public Serializable create(Object newInstance) {
-        return null;
+    public void create(Client client) {
+        em.getTransaction().begin();
+        em.persist(client);
+        em.getTransaction().commit();
     }
 
     @Override
-    public Object read(Serializable id) {
-        return null;
+    public Client read(Client clientName) {
+        return em.find(Client.class, clientName);
     }
 
     @Override
-    public void update(Object transientObject) {
-
+    public void update(Client client) {
+        em.getTransaction().begin();
+        em.merge(client);
+        em.getTransaction().commit();
     }
 
     @Override
-    public void delete(Object persistentObject) {
-
+    public void delete(Client clientName) {
+        em.getTransaction().begin();
+        em.persist(clientName);
+        em.getTransaction().commit();
     }
+
+    @Override
+    public List<Client> getAll(){
+        TypedQuery<Client> namedQuery = em.createNamedQuery("Client.getAll", Client.class);
+        return namedQuery.getResultList();
+    }
+
 }
