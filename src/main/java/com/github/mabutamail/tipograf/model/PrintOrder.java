@@ -1,4 +1,4 @@
-package com.github.mabutamail.tipograf.models;
+package com.github.mabutamail.tipograf.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

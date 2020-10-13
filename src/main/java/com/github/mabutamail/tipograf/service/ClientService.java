@@ -1,6 +1,6 @@
 package com.github.mabutamail.tipograf.service;
 
-import com.github.mabutamail.tipograf.models.Client;
+import com.github.mabutamail.tipograf.model.Client;
 
 import javax.persistence.EntityManager;
 

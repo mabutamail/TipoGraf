@@ -1,6 +1,6 @@
 package com.github.mabutamail.tipograf.dao;
 
-import com.github.mabutamail.tipograf.models.Client;
+import com.github.mabutamail.tipograf.model.Client;
 
 import java.util.List;
 

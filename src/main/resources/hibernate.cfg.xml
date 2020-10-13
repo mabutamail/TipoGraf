@@ -26,7 +26,7 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-        <mapping class="com.github.mabutamail.tipograf.models.Client"/>
-        <mapping class="com.github.mabutamail.tipograf.models.PrintOrder"/>
+        <mapping class="com.github.mabutamail.tipograf.model.Client"/>
+        <mapping class="com.github.mabutamail.tipograf.model.PrintOrder"/>
     </session-factory>
 </hibernate-configuration>
