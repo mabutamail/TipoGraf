@@ -17,7 +17,7 @@
         <hibernate.version>5.4.15.Final</hibernate.version>
         <flyway-core.version>6.4.2</flyway-core.version>
         <jpa.version>1.0.2.Final</jpa.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <spring.version>5.2.9.RELEASE</spring.version>
 
