@@ -4,11 +4,11 @@ import com.github.mabutamail.tipograf.models.Client;
 
 import javax.persistence.EntityManager;
 
-import static com.github.mabutamail.tipograf.ProgramStart.emf;
+import static com.github.mabutamail.tipograf.ProgramStart.EMF;
 
 public class ClientService {
 
-    public EntityManager em = emf.createEntityManager();
+    public EntityManager em = EMF.createEntityManager();
 
     public Client add(Client client) {
         em.getTransaction().begin();

@@ -6,10 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-import static com.github.mabutamail.tipograf.ProgramStart.emf;
+import static com.github.mabutamail.tipograf.ProgramStart.EMF;
 
 public class ClientDaoJpaImpl implements Dao {
-    public EntityManager em = emf.createEntityManager();
+    public EntityManager em = EMF.createEntityManager();
 
     @Override
     public void create(Client client) {
