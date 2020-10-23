@@ -1,4 +1,7 @@
 # TipoGraf
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/676b1e7897af4aa29b5c7185d0e54708)](https://app.codacy.com/gh/mabutamail/TipoGraf?utm_source=github.com&utm_medium=referral&utm_content=mabutamail/TipoGraf&utm_campaign=Badge_Grade_Settings)
+
 ----------------------------    Учет заказов (впоследствии для типографий)      ----------------------------
 
 Минимально жизнеспособный продукт (minimum viable product, MVP)
