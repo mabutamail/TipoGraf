@@ -12,11 +12,11 @@ public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "CLIENT_ID")
+    @Column(name = "id")
     private Long clientId;
-    @Column(name = "CLIENT_NAME", unique = true, nullable = false, length = 40)
+    @Column(name = "name", unique = true, nullable = false, length = 40)
     private String clientName;
-    @Column(name = "CLIENT_COMMENT", nullable = false, length = 40)
+    @Column(name = "comment", nullable = false, length = 40)
     private String clientComment;
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "client")
     private Set<PrintOrder> printOrders = new HashSet<>();

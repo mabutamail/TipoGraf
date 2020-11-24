@@ -11,16 +11,16 @@ public class PrintOrder implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "ORDER_ID")
+    @Column(name = "id")
     private Long orderId;
-    @Column(name = "DATE", unique = true, nullable = false)
+    @Column(name = "createdate", unique = true, nullable = false)
     private LocalDateTime createDate;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "CLIENT_ID", nullable = false)
+    @JoinColumn(name = "client", nullable = false)
     private Client client;
     private Long price;
     private String comment;
-    @Column(name = "CONDITION", nullable = false)
+    @Column(name = "condition", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private OrderCondition condition;
 

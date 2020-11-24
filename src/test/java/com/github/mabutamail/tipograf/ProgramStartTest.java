@@ -2,7 +2,7 @@ package com.github.mabutamail.tipograf;
 
 import com.github.mabutamail.tipograf.model.Client;
 import com.github.mabutamail.tipograf.model.PrintOrder;
-import com.github.mabutamail.tipograf.utils.HibernateSessionFactory;
+import com.github.mabutamail.tipograf.util.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;

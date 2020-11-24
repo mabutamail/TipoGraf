@@ -1,4 +1,4 @@
-package com.github.mabutamail.tipograf.utils;
+package com.github.mabutamail.tipograf.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
