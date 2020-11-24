@@ -1,5 +1,5 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d1a6f6d0b4404f32bd59394074a3c1b6)](https://www.codacy.com/manual/javawebinar/topjava)
 [![Build Status](https://api.travis-ci.org/mabutamail/tipograf.svg?branch=master)](https://travis-ci.org/mabutamail/tipograf)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/070d6ae3da2a4756a2a2d42d8d85935b)](https://www.codacy.com/gh/mabutamail/TipoGraf/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mabutamail/TipoGraf&amp;utm_campaign=Badge_Grade)
 
 
 # TipoGraf
