@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul  http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window title="Список фильмов" viewModel="@id('vm') @init('ru.simplex_software.vr360_main_server.web.viewmodel.FilesVM')"
+            apply="org.zkoss.bind.BindComposer" height="min" hflex="1">
+        <vbox>
+            <hbox>
+            <button label="Загрузить новый файл" upload="true" onUpload="@command('upload', media=event.media)"/>
+            </hbox>
+            <separator height="6px"/>
+            <listbox model="@load(vm.films)" mold="paging" pageSize="20"  height="730px" >
+                <listhead menupopup="auto">
+                    <listheader label="Название"/>
+                    <listheader width="10%" label="Доступ для раздачи"/>
+                    <listheader width="15%" label="Скачать"/>
+                    <listheader width="17%" label="Удалить"/>
+                </listhead>
+                <template name="model" var="film" >
+                    <listitem>
+                        <listcell>
+                        <label value="@load(film.name)"/>
+                        </listcell>
+                        <listcell>
+                        <checkbox checked="@bind(film.activated)"
+                                  onCheck="@command('isActivated', film = film)"/>
+                        </listcell>
+                        <listcell>
+                        <button label="Скачать" onClick="@command('download', film=film)"/>
+                        </listcell>
+                        <listcell>
+                        <button label="Удалить" onClick="@command('delete', film=film)"/>
+                        </listcell>
+                    </listitem>
+
+                </template>
+            </listbox>
+        </vbox>
+    </window>
+</zk>

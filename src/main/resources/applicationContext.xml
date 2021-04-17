@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+                http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <context:component-scan base-package="ru.simplex_software.vr360_main_server"/>
+    <tx:annotation-driven/>
+
+    <!-- REST -->
+    <jaxrs:server id="restService" address="/">
+        <jaxrs:serviceBeans>
+            <bean class="ru.simplex_software.vr360_main_server.service.RestService"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+<!--    <bean id="transactionFilter" class="ru.simplex_software.vr360_main_server.security.TransactionFilter"/>-->
+
+<!--    <bean class="ru.simplex_software.vr360_main_server.web.WicketApplication"/>-->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:datasource.properties</value>
+                <value>classpath:hibernate.properties</value>
+                <value>classpath:profile.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Resources -->
+    <import resource="profileContext.xml"/>
+    <import resource="hibernateContext.xml"/>
+
+    <!-- Services -->
+<!--    <bean name="filmServlet" class="ru.simplex_software.vr360_main_server.web.servlets.FilmServlet"/>-->
+<!--    <bean name="filmService" class="ru.simplex_software.vr360_main_server.service.FilmService"/>-->
+<!--    <bean name="statisticService" class="ru.simplex_software.vr360_main_server.service.StatisticService"/>-->
+
+</beans>

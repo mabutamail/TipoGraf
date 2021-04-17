@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul  http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window vflex="1" hflex="1">
+        <div style="text-align:right">
+            <button label="Выход" href="/logout"/>
+        </div>
+        <tabbox id="tabbox" orient="left" tabscroll="false" >
+            <tabs id="tabs" width="200px" >
+                <tab label="Фильмы" sclass="left"/>
+                <tab label="Статистика" sclass="left"/>
+            </tabs>
+            <tabpanels>
+                <tabpanel>
+                    <include src="/files.zul"/>
+                </tabpanel>
+                <tabpanel>
+                    <include src="/statistics.zul"/>
+                </tabpanel>
+            </tabpanels>
+        </tabbox>
+    </window>
+</zk>

@@ -11,7 +11,7 @@
         <!--        <property name="hibernate.connection.password"></property>-->
 <!--===========================================================================================-->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/tipoGrafDB</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/tipograf_local</property>
         <property name="hibernate.dialect">org.hibernate.dialect.ProgressDialect</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">111</property>
@@ -26,7 +26,7 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-        <mapping class="com.github.mabutamail.tipograf.model.Client"/>
+        <mapping class="com.github.mabutamail.tipograf.model.User"/>
         <mapping class="com.github.mabutamail.tipograf.model.PrintOrder"/>
     </session-factory>
 </hibernate-configuration>

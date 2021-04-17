@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul  http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window title="Статистика" height="min" hflex="1"
+            viewModel="@id('vm') @init('ru.simplex_software.vr360_main_server.web.viewmodel.StatisticsVM')">
+
+        <groupbox sclass="main z-demo-config">
+            <separator height="15px"/>
+            <vlayout>
+                <groupbox mold="3d">
+                    <caption label="Статистика по просмотрам с планшетов"/>
+                    <datebox id="db" constraint="no future,no empty" value="@bind(vm.date)"
+                             onChange="@command('findAction', date = vm.date)"/>
+                    <separator height="15px"/>
+
+                    <!--============ ЛИСТ АКТИВНЫХ ПЛАНШЕТОВ НА ВЫБРАННУЮ ДАТУ + DISTINCT ============-->
+                    <listbox model="@load(vm.listOfActionsByDate)" mold="paging" pageSize="15" height="700px">
+                        <listhead>
+                            <listheader label="Планшеты" align="left"/>
+                        </listhead>
+
+                        <template name="model" var="imei">
+                            <listitem>
+                                <listcell>
+                                    Планшет (Imei):
+                                    <label value="@load(imei)"/>
+
+                                    <!--============ ЛИСТ ФИЛЬМОВ + ПРОСМОТРОВ(COUNT) ============-->
+                                    <listbox model="@load(vm.findByImei(imei, date = vm.date))">
+
+                                        <listhead>
+                                            <listheader label="Фильмы" align="left"/>
+                                            <listheader label="Просмотров" align="center" width="15%"/>
+                                        </listhead>
+
+                                        <template name="model" var="film">
+                                            <listitem>
+                                                <listcell label="@load(film[0])"/>
+                                                <listcell label="@load(film[1])"/>
+                                            </listitem>
+                                        </template>
+
+                                    </listbox>
+                                    <!--=============================================================-->
+
+                                    Всего просмотров на планшете:
+                                    <label value="@load(vm.countOfViewsFilmByImei(imei, date = vm.date))"/>
+                                    <!--=============================================-->
+
+                                </listcell>
+                            </listitem>
+                        </template>
+                    </listbox>
+                    <!--=====================================================-->
+
+                    Всего просмотров по всем планшетам:
+                    <label value="@load(vm.countOfAllViewsFilm(date = vm.date))"/>
+                    <!--=====================================================-->
+
+                </groupbox>
+            </vlayout>
+        </groupbox>
+    </window>
+</zk>
