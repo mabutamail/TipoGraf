@@ -69,5 +69,5 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-src/profiles/development
-src/profiles/production
+/src/profiles/development/
+/logs/
