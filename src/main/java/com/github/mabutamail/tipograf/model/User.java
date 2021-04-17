@@ -7,8 +7,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tg_client")
-@NamedQuery(name = "Client.getAll", query = "SELECT c from Client c")
-public class Client implements Serializable {
+@NamedQuery(name = "Client.getAll", query = "SELECT c from User c")
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -21,15 +21,15 @@ public class Client implements Serializable {
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "client")
     private Set<PrintOrder> printOrders = new HashSet<>();
 
-    public Client() {
+    public User() {
     }
 
-    public Client(String clientName, String clientComment) {
+    public User(String clientName, String clientComment) {
         this.clientName = clientName;
         this.clientComment = clientComment;
     }
 
-    public Client(String clientName, String clientComment, Set<PrintOrder> printOrders) {
+    public User(String clientName, String clientComment, Set<PrintOrder> printOrders) {
         this.clientName = clientName;
         this.clientComment = clientComment;
         this.printOrders = printOrders;

@@ -3,7 +3,7 @@ package com.github.mabutamail.tipograf.dao;
 import com.github.mabutamail.tipograf.service.ClientService;
 import org.junit.Test;
 
-public class ClientServiceTest {
+public class UserServiceTest {
     ClientService clientService = new ClientService();
 
     @Test

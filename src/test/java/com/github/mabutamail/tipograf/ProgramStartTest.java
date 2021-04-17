@@ -1,7 +1,7 @@
 package com.github.mabutamail.tipograf;
 
-import com.github.mabutamail.tipograf.model.Client;
 import com.github.mabutamail.tipograf.model.PrintOrder;
+import com.github.mabutamail.tipograf.model.User;
 import com.github.mabutamail.tipograf.util.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.junit.After;
@@ -47,8 +47,8 @@ public class ProgramStartTest {
     public void main() {
         logger.info("====================       Начало метода main        ====================");
 
-        jpaExample();
-//        hibernateExample();
+//        jpaExample();
+        hibernateExample();
 
         logger.info("====================       Конец метода main         ====================");
 
@@ -62,15 +62,15 @@ public class ProgramStartTest {
 
     @Test
     public void shouldFindClient() {
-        Client client = new Client("Клиент №1","слоны пошли на север");
+        User client = new User("Клиент №1","слоны пошли на север");
         em.persist(client);
-        Client result = em.find(Client.class, 1L);
+        User result = em.find(User.class, 1L);
         assertNotNull(result);
         logger.info("\n\n====================       \nКлиент создан \n{}\n====================\n", client.toString());
     }
 
     public void jpaExample() {
-        Client clientEM = new Client();
+        User clientEM = new User();
         clientEM.setClientName("Рога и Копыта _ Entity Manager");
         clientEM.setClientComment("тел (495) 123-45-67 Entity Manager");
         em.persist(clientEM);
@@ -84,14 +84,14 @@ public class ProgramStartTest {
         em.persist(zakazEM);
         logger.info("====================       Заказ создан Entity Manager         ====================");
 
-        Client clientEM2 = new Client();
+        User clientEM2 = new User();
         clientEM2.setClientName("Рога и Копыта _ Entity Manager2222");
         clientEM2.setClientComment("тел (495) 123-45-67 Entity Manager2222");
         em.persist(clientEM2);
         logger.info("====================       Клиент2 создан Entity Manager        ====================");
 
         logger.info("\n\n====================       Список клиентов Entity Manager         ====================");
-        logger.info("{}\n", em.createQuery("from Client").getResultList());
+        logger.info("{}\n", em.createQuery("from User").getResultList());
 
         logger.info("\n\n====================       Список заказов Entity Manager         ====================");
         logger.info("{}\n", em.createQuery("from PrintOrder").getResultList());
@@ -104,7 +104,7 @@ public class ProgramStartTest {
         session.beginTransaction();
         logger.info("====================       начало транзакции         ====================");
 
-        Client client1 = new Client();
+        User client1 = new User();
         client1.setClientName("Рога и Копыта");
         client1.setClientComment("тел (495) 123-45-67");
         session.save(client1);
@@ -122,14 +122,14 @@ public class ProgramStartTest {
         logger.info("====================       Транзакция завершена         ====================");
 
         session.beginTransaction();
-        Client client2 = new Client();
+        User client2 = new User();
         client2.setClientName("Мордор inc");
         client2.setClientComment("тел (495) 123-45-67 платят кровью");
         session.save(client2);
         session.getTransaction().commit();
 
         logger.info("\n\n====================       Список клиентов         ====================");
-        logger.info("{}\n", session.createQuery("from Client").list());
+        logger.info("{}\n", session.createQuery("from User").list());
 
         logger.info("\n\n====================       Список заказов         ====================");
         logger.info("{}\n", session.createQuery("from PrintOrder").list());

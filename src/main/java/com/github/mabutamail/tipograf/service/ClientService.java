@@ -1,6 +1,6 @@
 package com.github.mabutamail.tipograf.service;
 
-import com.github.mabutamail.tipograf.model.Client;
+import com.github.mabutamail.tipograf.model.User;
 
 import javax.persistence.EntityManager;
 
@@ -10,15 +10,15 @@ public class ClientService {
 
     public EntityManager em = EMF.createEntityManager();
 
-    public Client add(Client client) {
+    public User add(User client) {
         em.getTransaction().begin();
-        Client clientFromDB = em.merge(client);
+        User clientFromDB = em.merge(client);
         em.getTransaction().commit();
         return clientFromDB;
     }
 
-    public Client getById(long id) {
-        return em.find(Client.class, id);
+    public User getById(long id) {
+        return em.find(User.class, id);
     }
 
 //    public List<Client> getAll() {
@@ -26,7 +26,7 @@ public class ClientService {
 //        return namedQuery.getResultList();
 //    }
 
-    public void update(Client client) {
+    public void update(User client) {
         em.getTransaction().begin();
         em.merge(client);
         em.getTransaction().commit();

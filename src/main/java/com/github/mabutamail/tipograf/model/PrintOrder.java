@@ -17,7 +17,7 @@ public class PrintOrder implements Serializable {
     private LocalDateTime createDate;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "client", nullable = false)
-    private Client client;
+    private User client;
     private Long price;
     private String comment;
     @Column(name = "condition", nullable = false)
@@ -29,14 +29,14 @@ public class PrintOrder implements Serializable {
         this.condition = OrderCondition.ACCEPTED;
     }
 
-    public PrintOrder(Client client, Long price) {
+    public PrintOrder(User client, Long price) {
         this.createDate = LocalDateTime.now();
         this.client = client;
         this.price = price;
         this.condition = OrderCondition.ACCEPTED;
     }
 
-    public PrintOrder(Client client, Long price, String comment) {
+    public PrintOrder(User client, Long price, String comment) {
         this.createDate = LocalDateTime.now();
         this.client = client;
         this.price = price;
@@ -60,11 +60,11 @@ public class PrintOrder implements Serializable {
         this.createDate = LocalDateTime.now();
     }
 
-    public Client getClient() {
+    public User getClient() {
         return this.client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(User client) {
         this.client = client;
     }
 
