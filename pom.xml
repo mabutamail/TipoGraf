@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
         <postgresql.version>42.2.12</postgresql.version>
-        <hibernate.version>5.4.15.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <flyway-core.version>6.4.2</flyway-core.version>
         <jpa.version>1.0.2.Final</jpa.version>
         <junit.version>4.13.1</junit.version>
