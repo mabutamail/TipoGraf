@@ -19,7 +19,7 @@
         <jpa.version>1.0.2.Final</jpa.version>
         <junit.version>4.13.1</junit.version>
 
-        <spring.version>5.2.9.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
 
         <!-- Logging -->
         <logback.version>1.2.3</logback.version>
